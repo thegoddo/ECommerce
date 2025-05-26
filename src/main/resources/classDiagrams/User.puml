@@ -6,7 +6,7 @@ class User {
     email: String
     firstName: String
     lastName: String
-    address: String
+    address: Address
     phoneNumber: String
     roles: String // customer role or admin role
     registrationDate: LocalDateTime

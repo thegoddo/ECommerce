@@ -1,0 +1,11 @@
+@startuml
+class Payment {
+    id: Long
+    orderId: Long (Order.id)
+    paymentMethod: String or enum
+    amount: BigDecimal
+    transactionId: String
+    status: String or enum// failed or success
+    paymentDate: LocalDateTime
+}
+@enduml
