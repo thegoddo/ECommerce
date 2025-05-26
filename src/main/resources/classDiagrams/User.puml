@@ -1,0 +1,14 @@
+@startuml
+class User {
+    id: Long
+    username: String
+    passwordHash: String
+    email: String
+    firstName: String
+    lastName: String
+    address: String
+    phoneNumber: String
+    roles: String // customer role or admin role
+    registrationDate: LocalDateTime
+}
+@enduml
