@@ -1,0 +1,8 @@
+@startuml
+class CartItem {
+    id: Long
+    cartId: Long
+    productId: Long
+    quantity: Integer
+}
+@enduml
