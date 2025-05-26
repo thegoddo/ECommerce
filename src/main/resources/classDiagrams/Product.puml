@@ -6,7 +6,7 @@ class User {
     + price: BigDecimal
     + stockQuantity: Integer
     + imageUrl: String
-    + category: String
+    + category: Category
     + createdAt: LocalDateTime
     + updateAt: LocalDateTime
 }
