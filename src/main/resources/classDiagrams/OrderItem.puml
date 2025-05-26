@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class OrderItem {
+    id: Long
+    orderId: Long (FK to    Order.id)
+    productId: Long (FK to Product.id)
+    quantity: Integer
+    priceAtPurchase: BigDecimal
+}
+
+@enduml
