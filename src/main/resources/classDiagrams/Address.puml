@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Address {
+id: Long
+street: String
+city: String
+state: String
+zipCode: String
+country: String
+userId: Long
+}
+@enduml
