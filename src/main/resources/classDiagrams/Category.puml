@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Category {
+     id: Long
+     name: String
+     description: String
+     parentCategory: Long 'FK Category.id, can be null, or self referential class Category
+}
+@enduml
