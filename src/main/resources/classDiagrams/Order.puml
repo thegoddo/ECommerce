@@ -1,0 +1,12 @@
+@startuml
+class Order {
+    id: Long
+    userId: Long (Foreign key User.id)
+    orderDate: LocalDateTime
+    totalAmount: BigDecimal
+    status: String
+    shippingAddress: Address
+    billingAddress: Address
+    orderItems: List<OrderItem>
+}
+@enduml
