@@ -1,14 +1,13 @@
 package lnct.project.ECommerce.repositories;
 
 import lnct.project.ECommerce.models.Order;
-import lnct.project.ECommerce.models.User;
+import lnct.project.ECommerce.models.OrderItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-public interface OrderRepository  extends JpaRepository<Order, Long> {
-    List<Order> findByuser(User user);
+public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
+    List<OrderItem> findByOrder(Order order);
 }

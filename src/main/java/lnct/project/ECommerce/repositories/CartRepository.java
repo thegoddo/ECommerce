@@ -1,4 +1,14 @@
 package lnct.project.ECommerce.repositories;
 
-public interface CartRepository {
+import lnct.project.ECommerce.models.Cart;
+import lnct.project.ECommerce.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface CartRepository extends JpaRepository<Cart, Long> {
+    Optional<Cart> findByUser(User user);
+    // Add other custom query methods if needed
 }
