@@ -12,5 +12,5 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByNameContainingIgnoreCase(String name);
-    List<Product> findByPriceRange(@Param("minPrice")BigDecimal minPrice, @Param("maxPrice") BigDecimal maxPrice);
+//    List<Product> findByPriceRange(@Param("minPrice")BigDecimal minPrice, @Param("maxPrice") BigDecimal maxPrice);
 }
