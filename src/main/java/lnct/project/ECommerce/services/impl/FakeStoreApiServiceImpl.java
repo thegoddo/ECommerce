@@ -1,6 +1,5 @@
 package lnct.project.ECommerce.services.impl;
 
-import lnct.project.ECommerce.config.FakeStoreApiConfig;
 import lnct.project.ECommerce.dtos.FakeStoreProductDto;
 import lnct.project.ECommerce.services.FakeStoreApiService;
 import org.springframework.beans.factory.annotation.Autowired;
