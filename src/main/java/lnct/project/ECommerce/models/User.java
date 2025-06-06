@@ -1,49 +1,72 @@
 package lnct.project.ECommerce.models;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
-@Entity(name = "users") // Renamed table to avoid potential conflicts with reserved keywords
-@Getter
-@Setter
-public class User {
+public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
+    private int Userid;
 
-    @Column(nullable = false, unique = true)
-    private String username;
-
-    @Column(nullable = false)
-    private String passwordHash;
-
-    @Column(nullable = false, unique = true)
+    private String name;
     private String email;
+    private String password;
 
-    private String firstName;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date date;
 
-    private String lastName;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Role> role;
 
-    private String address; // Or @ManyToOne to Address
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
 
-    private String phoneNumber;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = role.stream()
+                .map(role -> new SimpleGrantedAuthority("ROLE_"+role.getRole()))
+                .collect(Collectors.toList());
+        return authorities;
+    }
 
-    @ElementCollection(fetch = FetchType.EAGER) // For simple roles
-    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "role")
-    private Set<String> roles; // e.g., "ROLE_CUSTOMER", "ROLE_ADMIN"
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
-    private LocalDateTime registrationDate = LocalDateTime.now();
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

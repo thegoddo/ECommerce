@@ -1,28 +1,34 @@
 package lnct.project.ECommerce.models;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity(name = "shopping_cart")
-@Getter
-@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@ToString
 public class Cart {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false, unique = true)
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
+    private float TotalAmount;
 
-    private LocalDateTime creationDate = LocalDateTime.now();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    private List<CartDetails> cartDetails;
 
-    private LocalDateTime lastUpdatedDate = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItem> cartItems;
+    public void setCartDetails(List<CartDetails> pro) {
+
+    }
 }
