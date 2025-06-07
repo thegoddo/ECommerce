@@ -3,6 +3,9 @@ package lnct.project.ECommerce.models;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +15,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Entity
+@NoArgsConstructor
+@Data
+@ToString
 public class User implements UserDetails {
 
     @Id
