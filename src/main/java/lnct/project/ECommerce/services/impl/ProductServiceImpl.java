@@ -1,6 +1,6 @@
 package lnct.project.ECommerce.services.impl;
 
-import lnct.project.ECommerce.models.Product;
+import lnct.project.ECommerce.entities.Product;
 import lnct.project.ECommerce.payload.ProductDto;
 import lnct.project.ECommerce.repositories.ProductRepo;
 import lnct.project.ECommerce.services.ProductService;
@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
@@ -26,15 +28,16 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepo productRepo;
 
 
+
     //Create
     @Override
     public ProductDto CreateProduct(ProductDto productDto) {
-        Product product = this.modelMapper.map(productDto, Product.class);
+        Product product=this.modelMapper.map(productDto,Product.class);
         product.setImg(compressBytes(product.getImg()));
 
         Product save = this.productRepo.save(product);
         save.setImg(null);
-        return this.modelMapper.map(save, ProductDto.class);
+        return this.modelMapper.map(save,ProductDto.class);
     }
 
     //Read One
@@ -45,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
         save.setImg(decompressBytes(save.getImg()));
 
 
-        return this.modelMapper.map(save, ProductDto.class);
+        return this.modelMapper.map(save,ProductDto.class);
     }
 
 
@@ -73,7 +76,7 @@ public class ProductServiceImpl implements ProductService {
 
     //Update
     @Override
-    public ProductDto UpdateProduct(ProductDto productDto, Integer ProductId) {
+    public ProductDto UpdateProduct(ProductDto productDto,Integer ProductId) {
 
         Product newProduct = this.productRepo.findById(ProductId).orElseThrow();
         newProduct.setProductId(ProductId);
@@ -86,8 +89,11 @@ public class ProductServiceImpl implements ProductService {
         productRepo.save(newProduct);
 
 
-        return this.modelMapper.map(newProduct, ProductDto.class);
+        return this.modelMapper.map(newProduct,ProductDto.class);
     }
+
+
+
 
 
     // compress the image bytes before storing it in the database

@@ -1,5 +1,6 @@
 package lnct.project.ECommerce.controllers;
 
+
 import lnct.project.ECommerce.payload.PaymentDetails;
 import lnct.project.ECommerce.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,3 @@ public class PaymentController {
     }
 
 }
-

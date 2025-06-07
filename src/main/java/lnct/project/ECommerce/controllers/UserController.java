@@ -1,6 +1,6 @@
 package lnct.project.ECommerce.controllers;
 
-import lnct.project.ECommerce.payload.SignIn;
+import lnct.project.ECommerce.payload.SingIn;
 import lnct.project.ECommerce.payload.UserDto;
 import lnct.project.ECommerce.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +27,9 @@ public class UserController {
 
 
     @PostMapping("/singin")
-    public ResponseEntity<SignIn> CreateUser(@RequestBody SignIn singIn){
+    public ResponseEntity<SingIn> CreateUser(@RequestBody SingIn singIn){
 
-        SignIn singIn1 = this.userService.SignIn(singIn);
+        SingIn singIn1 = this.userService.SingIn(singIn);
         return new ResponseEntity<>(singIn1, HttpStatusCode.valueOf(200));
     }
 }
-

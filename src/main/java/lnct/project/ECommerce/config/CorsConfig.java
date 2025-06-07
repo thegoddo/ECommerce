@@ -9,14 +9,14 @@ public class CorsConfig implements WebMvcConfigurer{
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // TODO: Auto generate method stub
-
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("*")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+        // TODO Auto-generated method stub
+                registry.addMapping("/**")
+            .allowedOrigins("*")
+            .allowedMethods("*")
+            .allowedHeaders("*")
+            .allowCredentials(true);
 
         WebMvcConfigurer.super.addCorsMappings(registry);
     }
+    
 }

@@ -5,14 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@ToString
-@Data
-@AllArgsConstructor
+
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
+@ToString
 public class CartDetailDto {
 
-    private int CartDetailsId;
+    private int CartDetalisId;
     private ProductDto products;
-    private int quantity;
-    private int amount;
+    private int Quantity;
+    private int Amount;
+
+//    private CartDto cart;
 }

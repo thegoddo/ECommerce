@@ -8,14 +8,15 @@ import lombok.ToString;
 import java.util.List;
 
 @ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class CartDto {
-    private int id;
+    private int Id;
+
     private UserDto user;
 
-    private float totalAmount;
+    private float TotalAmount;
 
-    private List<CartDetailDto> cartDetails;
+    private List<CartDetailDto> cartDetalis;
 }

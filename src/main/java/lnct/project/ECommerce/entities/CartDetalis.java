@@ -1,4 +1,5 @@
-package lnct.project.ECommerce.models;
+package lnct.project.ECommerce.entities;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,15 +7,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @ToString
-@AllArgsConstructor
-public class CartDetails {
+public class CartDetalis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int CartDetailsId;
+    private int CartDetalisId;
 
     @ManyToOne
     private Product products;
@@ -23,4 +26,9 @@ public class CartDetails {
 
     @ManyToOne
     private Cart cart;
+
+
+
+
+
 }

@@ -1,6 +1,5 @@
-package lnct.project.ECommerce.models;
+package lnct.project.ECommerce.entities;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,18 +24,21 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Userid;
 
-    private String name;
+    private String Name;
     private String email;
-    private String password;
+    private String Password;
+    private String Contact;
+
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Role> role;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Cart cart;
+
 
 
     @Override
@@ -49,7 +51,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     @Override

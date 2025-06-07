@@ -1,5 +1,8 @@
 package lnct.project.ECommerce.payload;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,15 +16,19 @@ import java.util.Date;
 @AllArgsConstructor
 public class UserDto {
 
-    private int userId;
 
-    private String name;
-    private String email;
-    private String password;
-    private String contact;
+    private int Userid;
 
+    private String Name;
+    private String Email;
+    private String Password;
     private String Contact;
 
+
     private Date date;
-    private String role;
+
+    private String Role;
+
+//     private CartDto cart;
+
 }

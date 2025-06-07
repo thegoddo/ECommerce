@@ -10,10 +10,10 @@ import lombok.ToString;
 @Data
 @ToString
 public class ProductDto {
-    private int ProductId;
-    private  String productName;
-    private String description;
+    private int Productid;
+    private String ProductName;
+    private String Description;
     private Float Price;
-    private Float weight;
-    private byte[] img;
+    private Float Weight;
+    private byte[] Img;
 }

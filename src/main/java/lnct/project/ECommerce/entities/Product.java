@@ -1,4 +1,4 @@
-package lnct.project.ECommerce.models;
+package lnct.project.ECommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -26,5 +26,6 @@ public class Product {
     private byte[] Img;
 
     @OneToMany(mappedBy = "products")
-    private List<CartDetails> list;
+    private List<CartDetalis> list;
+
 }

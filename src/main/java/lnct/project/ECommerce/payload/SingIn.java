@@ -7,10 +7,12 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Data
-public class SignIn {
-    private String email;
-    private String password;
+@ToString
+public class SingIn {
+
+    private String Email;
+    private String Password;
     private String jwt;
+
 }

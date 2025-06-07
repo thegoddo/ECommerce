@@ -1,4 +1,4 @@
-package lnct.project.ECommerce.models;
+package lnct.project.ECommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,18 +17,18 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
     private float TotalAmount;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private List<CartDetails> cartDetails;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "cart")
+    private List<CartDetalis> cartDetalis;
 
 
-    public void setCartDetails(List<CartDetails> pro) {
-
+    public void setCartDetalis(List<CartDetalis> pro) {
     }
 }
