@@ -23,11 +23,6 @@ public class ApplicationConfig {
     @Autowired
     private UserRepo userRepo;
 
-//    @Bean
-//    pub:w
-//    lic UserDetailsService userDetailsService(){
-//        return username -> userRepo.findByEmail(username);
-//    }
 
     @Bean
     public UserDetailsService userDetailsService(){
