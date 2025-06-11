@@ -11,8 +11,8 @@ import lombok.ToString;
 @ToString
 public class SingIn {
 
-    private String Email;
-    private String Password;
+    private String email;
+    private String password;
     private String jwt;
 
 }

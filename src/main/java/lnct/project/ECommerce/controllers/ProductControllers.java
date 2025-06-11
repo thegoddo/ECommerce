@@ -48,7 +48,7 @@ public class ProductControllers {
     @GetMapping("/")
     public ResponseEntity<List<ProductDto>> getAll(){
         List<ProductDto> products = this.productService.ReadAllProduct();
-
+        System.out.println("here is the products"+products);
         return new ResponseEntity<>(products,HttpStatusCode.valueOf(200));
     }
 
